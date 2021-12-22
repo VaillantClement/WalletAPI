@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletAPI", "WalletAPI\WalletAPI.csproj", "{6087A65E-83A9-4A6A-BD26-CF010D2EBE83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletAPI.DAL", "WalletAPI.DAL\WalletAPI.DAL.csproj", "{126BD29C-C761-491F-B0A5-C368C0EAA100}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WalletAPI.Domain", "WalletAPI.Domain\WalletAPI.Domain.csproj", "{8D55D0DF-DD33-4362-8AC4-C4C425AF3FEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6087A65E-83A9-4A6A-BD26-CF010D2EBE83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6087A65E-83A9-4A6A-BD26-CF010D2EBE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6087A65E-83A9-4A6A-BD26-CF010D2EBE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6087A65E-83A9-4A6A-BD26-CF010D2EBE83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126BD29C-C761-491F-B0A5-C368C0EAA100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126BD29C-C761-491F-B0A5-C368C0EAA100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126BD29C-C761-491F-B0A5-C368C0EAA100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126BD29C-C761-491F-B0A5-C368C0EAA100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D55D0DF-DD33-4362-8AC4-C4C425AF3FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D55D0DF-DD33-4362-8AC4-C4C425AF3FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D55D0DF-DD33-4362-8AC4-C4C425AF3FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D55D0DF-DD33-4362-8AC4-C4C425AF3FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83520D18-10D4-4F6C-AA2C-9D2995BFB3D3}
+	EndGlobalSection
+EndGlobal

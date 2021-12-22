@@ -1,0 +1,13 @@
+packages/
+bin/
+obj/
+tmp/
+*.g.cache
+*.g.cs
+*.g.props
+*.g.targets
+*.deps.json
+*.csproj.CopyComplete
+*.csproj.*
+*.csproj.user
+*.vs

@@ -1,0 +1,130 @@
+﻿@using WalletAPI.Domain.Models
+@model Identity
+@{
+    ViewBag.Title = "Create Account";
+}
+
+<h2>Create</h2>
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            @using (Html.BeginForm("Create", "api/Identity", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "identityForm", @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Fill this form to create a user and access your wallet!</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdCardNumber, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.IdCardNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.IdCardNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+                <p>
+                    <a href="/Home">Login</a>
+                </p>
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        function extractErrors(jqXhr, validator) {
+            var data = JSON.parse(jqXhr.responseText), // parse the response into a JavaScript object
+                errors = {};
+
+            $.each(data.ModelState, function (key, value) {
+                var pieces = key.split('.');
+                key = pieces[pieces.length - 1];
+                errors[key] = value
+            });
+
+            $.each(errors, function (key, value) {
+                alert($('#' + key).length);
+                console.log(value);
+                $('#DateOfBirth').validate().showErrors(value);
+            });
+        }
+
+        $("#identityForm").submit(function (e) {
+            e.preventDefault();
+
+            var identityModel = {
+                IdCardNumber: $("#IdCardNumber").val(),
+                FirstName: $("#FirstName").val(),
+                LastName: $("#LastName").val(),
+                DateOfBirth: $("#DateOfBirth").val(),
+                Email: $("#Email").val(),
+                Username: $("#Username").val(),
+                Password: $("#Password").val()
+            };
+            
+            $.ajax({
+                url: '/api/Identity/Create',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(identityModel),
+                success: function (result) {
+
+                },
+                error: function (xhr, status, err) {
+                    if (xhr.status == 400) {
+                        extractErrors(xhr, xhr.responseJSON.ModelState);
+                    }
+                },
+            });
+        });
+
+    </script>
+}
