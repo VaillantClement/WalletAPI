@@ -32,3 +32,5 @@ The WebAPI uses a basic authentication filter that can be found in the WalletAPI
 
 - Kindly find a postman collection containing 3 functional calls that you can import and run in postman (when the project is running)
 - Time passed: 16 hours 
+
+- Solution provided is not finished. APIs and UI are incomplete. 
