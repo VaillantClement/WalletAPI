@@ -14,7 +14,7 @@ namespace WalletAPI.Controllers
     {
         [HttpPost]
         [AllowAnonymous]
-        public Response<Login> Login(Login model)
+        public Response<Login> Login([FromBody] Login model)
         {
             var response = new Response<Login>();
 
@@ -43,7 +43,7 @@ namespace WalletAPI.Controllers
 
         [HttpPost]
         [ValidateModel]
-        public Response<Identity> Create([FromBody] Identity identityModel)
+        public Response Create([FromBody] Identity identityModel)
         {
             return IdentityService.Create(identityModel);
         }

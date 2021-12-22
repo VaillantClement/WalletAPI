@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "43491968-cff9-4ca2-91fd-d74fa935e527",
+		"name": "WalletCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Identity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44300/api/identity/get/f3efd723-700e-40d3-854a-08a90dcb9a76",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44300",
+					"path": [
+						"api",
+						"identity",
+						"get",
+						"f3efd723-700e-40d3-854a-08a90dcb9a76"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    username: \"test\", \r\n    password: \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44300/api/Identity/Login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44300",
+					"path": [
+						"api",
+						"Identity",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Identity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"IdCardNumber\": \"0191398A\",\r\n    \"FirstName\": \"Test2\",\r\n    \"LastName\": \"Test2\",\r\n    \"DateOfBirth\": \"01/01/1990\",\r\n    \"Email\": \"test2@test.com\",\r\n    \"Username\": \"test2\",\r\n    \"Password\": \"R4nd0M!!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44300/api/Identity/Create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44300",
+					"path": [
+						"api",
+						"Identity",
+						"Create"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "test",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "test",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
